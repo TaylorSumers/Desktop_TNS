@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7f6d76cbf766486d98cc57d5f41c8695" Name="Diagram1">
+        <EntityTypeShape EntityType="TNSModel.Abonent" Width="1.5" PointX="10" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.Abonent_Tariff" Width="1.5" PointX="12.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.AbonentNetworkEquipment" Width="1.5" PointX="15" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.AbonentPayment" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.AccessNetworkEquipment" Width="1.5" PointX="15" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.ContractType" Width="1.5" PointX="7.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.CRMRequest" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.DataTransmissionStandart" Width="1.5" PointX="12.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.DataTransmissionTechnology" Width="1.5" PointX="7.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.Employee" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.Events" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.MainNetworkEquipment" Width="1.5" PointX="10" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.Position" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.ProblemType" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.RequestStatus" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.RequestToEmployee" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.Service" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.ServiceKind" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.ServiceType" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.Sex" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.sysdiagrams" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNSModel.Tariff" Width="1.5" PointX="10" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="TNSModel.FK__Abonent__Contrac__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__Abonent__Sex__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__Abonent_T__Abone__57DD0BE4" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__Abonent_T__Tarif__5CA1C101" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__AbonentNe__DataT__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__AccessNet__DataT__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__CRMReques__Probl__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__CRMReques__Servi__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__CRMReques__Servi__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__CRMReques__Statu__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__RequestTo__ReqID__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__MainNetwo__DataT__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__Employee__Positi__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__RequestTo__EmpID__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__Events__TargetPo__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="TNSModel.FK__ServiceTy__Servi__5CD6CB2B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

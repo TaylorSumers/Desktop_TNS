@@ -1,0 +1,21 @@
+﻿<Page x:Class="Desktop_TNS.StationCalcPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Desktop_TNS"
+      mc:Ignorable="d" 
+      d:DesignHeight="315" d:DesignWidth="750"
+      Title="StationCalcPage">
+
+    <Grid Background="white">
+        <TextBox x:Name="S" HorizontalAlignment="Left" Margin="49,38,0,0" TextWrapping="Wrap" Text="площадь предп зоны обсл" VerticalAlignment="Top" Width="165"/>
+        <TextBox Name="Sb" HorizontalAlignment="Left" Margin="49,72,0,0" TextWrapping="Wrap" Text="Площадь покрытия бс" VerticalAlignment="Top" Width="165"/>
+        <TextBox Name="k"  HorizontalAlignment="Left" Margin="49,106,0,0" TextWrapping="Wrap" Text="коэфф застройки" VerticalAlignment="Top" Width="165"/>
+        <TextBox Name="S1"  HorizontalAlignment="Left" Margin="49,0,0,0" TextWrapping="Wrap" Text="Площадь зоны бс2" VerticalAlignment="Center" Width="120"/>
+        <TextBox Name="S2" HorizontalAlignment="Left" Margin="49,185,0,0" TextWrapping="Wrap" Text="Площадь зоны бс3" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="tbn" HorizontalAlignment="Left" Margin="49,225,0,0" TextWrapping="Wrap" Text="n=" VerticalAlignment="Top"/>
+        <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="49,263,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+
+    </Grid>
+</Page>

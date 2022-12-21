@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desktop_TNS", "Desktop_TNS.csproj", "{F58A201D-80B5-4E32-BDC8-27BC6C762316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StationCalulationLibrary", "..\StationCalulationLibrary\StationCalulationLibrary.csproj", "{BA4416DD-EA47-4C17-9D94-FF5EDA6FCE71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F58A201D-80B5-4E32-BDC8-27BC6C762316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58A201D-80B5-4E32-BDC8-27BC6C762316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58A201D-80B5-4E32-BDC8-27BC6C762316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58A201D-80B5-4E32-BDC8-27BC6C762316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA4416DD-EA47-4C17-9D94-FF5EDA6FCE71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA4416DD-EA47-4C17-9D94-FF5EDA6FCE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA4416DD-EA47-4C17-9D94-FF5EDA6FCE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA4416DD-EA47-4C17-9D94-FF5EDA6FCE71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE82758B-A636-4118-87B6-1856D0005D69}
+	EndGlobalSection
+EndGlobal

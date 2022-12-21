@@ -1,0 +1,25 @@
+﻿<Page x:Class="Desktop_TNS.ConditionControlPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Desktop_TNS"
+      mc:Ignorable="d" 
+      d:DesignHeight="315" d:DesignWidth="750"
+      Title="ConditionControlPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ComboBox Name="cbxSelectEquipment" Height="20" Width="200" HorizontalAlignment="Right" Margin="10, 0">
+            <ComboBoxItem Name="MainNE" Content="Оборудование магистральных сетей" Selected="MainNE_Selected"/>
+            <ComboBoxItem Name="AccessNE" Content="Оборудование сетей доступа" Selected="AccessNE_Selected"/>
+            <ComboBoxItem Name="AbonentNE" Content="Оборудование абонента" Selected="AbonentNE_Selected"/>
+        </ComboBox>
+        <DataGrid Name="dtgEquipment" Grid.Row="1" Margin="10, 0" AutoGenerateColumns="False" ColumnWidth="*" SelectedValuePath="ID" MouseDoubleClick="dtgEquipment_MouseDoubleClick" IsReadOnly="True"></DataGrid>
+        <Button Name="btnTest" Background="#4A67F7" Foreground="White" Grid.Row="2" Height="20" Width="100" HorizontalAlignment="Right" Margin="50, 0" Content="Протестировать" Click="btnTest_Click"/>
+    </Grid>
+</Page>

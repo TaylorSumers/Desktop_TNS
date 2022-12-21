@@ -1,0 +1,37 @@
+﻿<Window x:Class="Desktop_TNS.EquipmentInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop_TNS"
+        mc:Ignorable="d"
+        Height="400" Width="700"
+        Title="Информация об оборудовании" MinHeight="400" MinWidth="700"
+        Icon="Resources/image.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="5">
+            <TextBlock Name="tbName1" Text="Название:" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbSerialNumber1" Text="Серийный номер:" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbFrequency1" Text="Частота:" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbTechnology1" Text="Технология:" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbStandart1" Text="Стандарт:" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbPortAmount1" Text="Кол-во портов:" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbTransmissionSpeed1" Text="Скорость:" FontSize="20" Margin="0, 5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="5">
+            <TextBlock Name="tbName2" Text="{Binding Name}" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbSerialNumber2" Text="{Binding SerialNumber}" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbFrequency2" Text="{Binding Frequency}" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbTechnology2" Text="{Binding TechName}" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbStandart2" Text="{Binding StandName}" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbPortAmount2" Text="{Binding PortAmount}" FontSize="20" Margin="0, 5"/>
+            <TextBlock Name="tbTransmissionSpeed2" Text="{Binding TransmissionSpeed}" FontSize="20" Margin="0, 5"/>
+        </StackPanel>
+        <Button Name="btnTest" Background="#4A67F7" Foreground="White" Grid.Column="1" Content="Протестировать" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20" Click="btnTest_Click"/>
+    </Grid>
+</Window>

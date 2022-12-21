@@ -1,0 +1,1780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TNSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Abonent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Paramonic" Type="varchar" MaxLength="20" />
+          <Property Name="PassportNumber" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="PassportSeries" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="PassportIssueDate" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="ContractNumber" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ContractConclusionDate" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="ContractType" Type="int" Nullable="false" />
+          <Property Name="ContractTerminationDate" Type="varchar" MaxLength="12" />
+          <Property Name="ContractTerminationReason" Type="varchar" MaxLength="100" />
+          <Property Name="AccountNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EquipmentSerialNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="RentLeasingInfo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Sex" Type="int" Nullable="false" />
+          <Property Name="DateofBirth" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassportIssueOrganization" Type="int" />
+          <Property Name="RegistrationAddress" Type="int" />
+        </EntityType>
+        <EntityType Name="Abonent_Service">
+          <Key>
+            <PropertyRef Name="asID" />
+          </Key>
+          <Property Name="asID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="asAbonent" Type="int" Nullable="false" />
+          <Property Name="asService" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Abonent_Tariff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Abonent" Type="int" Nullable="false" />
+          <Property Name="Tariff" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AbonentNetworkEquipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DataTransmissionStandart" Type="int" Nullable="false" />
+          <Property Name="TransmissionSpeed" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AbonentPayment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Abonent" Type="int" Nullable="false" />
+          <Property Name="PaymentDate" Type="date" Nullable="false" />
+          <Property Name="PaymentAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Balance" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BalanceDate" Type="date" Nullable="false" />
+          <Property Name="Debt" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="AccessNetworkEquipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PortAmount" Type="int" Nullable="false" />
+          <Property Name="DataTransmissionStandart" Type="int" Nullable="false" />
+          <Property Name="Frequency" Type="float" Nullable="false" />
+          <Property Name="TransmissionSpeed" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRMRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestNum" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreationDate" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="AccountNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Service" Type="int" Nullable="false" />
+          <Property Name="ServiceType" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="ProblemDescription" Type="varchar" MaxLength="255" />
+          <Property Name="ClosingDate" Type="varchar" MaxLength="12" />
+          <Property Name="ProblemType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataTransmissionStandart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="StandName" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataTransmissionTechnology">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TechName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Paramonic" Type="varchar" MaxLength="20" />
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TargetPosition" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MainNetworkEquipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Frequency" Type="float" Nullable="false" />
+          <Property Name="DataTransmissionTechnology" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassportIssueOrganization">
+          <Key>
+            <PropertyRef Name="OrgID" />
+          </Key>
+          <Property Name="OrgID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProblemType">
+          <Key>
+            <PropertyRef Name="ProblemTypeID" />
+          </Key>
+          <Property Name="ProblemTypeID" Type="int" Nullable="false" />
+          <Property Name="ProblemTypeName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistrationAddress">
+          <Key>
+            <PropertyRef Name="RegAddID" />
+          </Key>
+          <Property Name="RegAddID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegAddContry" Type="int" Nullable="false" />
+          <Property Name="RegAddCity" Type="int" Nullable="false" />
+          <Property Name="RegAddStreet" Type="int" Nullable="false" />
+          <Property Name="RegAddHouse" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="RegAddApartment" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="RequestStatus">
+          <Key>
+            <PropertyRef Name="RequestStatusID" />
+          </Key>
+          <Property Name="RequestStatusID" Type="int" Nullable="false" />
+          <Property Name="RequestStatusName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestToEmployee">
+          <Key>
+            <PropertyRef Name="RtEID" />
+          </Key>
+          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="ReqID" Type="int" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="isHoliday" Type="bit" Nullable="false" />
+          <Property Name="TimeEnd" Type="time" Precision="7" />
+          <Property Name="RtEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResidenceAddress">
+          <Key>
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="number" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="prefix_code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="raion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prefix" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="house" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" Nullable="false" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceKind">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ServiceKind" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="StreetID" />
+          </Key>
+          <Property Name="StreetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StreetName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tariff">
+          <Key>
+            <PropertyRef Name="TariffID" />
+          </Key>
+          <Property Name="TariffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TariffName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TariffPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="InternetConditions" Type="varchar" MaxLength="50" />
+          <Property Name="TVConditions" Type="varchar" MaxLength="50" />
+          <Property Name="MobileConditions" Type="varchar" MaxLength="50" />
+          <Property Name="VideoControlConditions" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Abonent__Contrac__4E88ABD4">
+          <End Role="ContractType" Type="Self.ContractType" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="ContractType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent__Passpor__32767D0B">
+          <End Role="PassportIssueOrganization" Type="Self.PassportIssueOrganization" Multiplicity="0..1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassportIssueOrganization">
+              <PropertyRef Name="OrgID" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="PassportIssueOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent__Registr__308E3499">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="0..1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="RegAddID" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent__Sex__10566F31">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="Sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent_S__asAbo__1B9317B3">
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="1" />
+          <End Role="Abonent_Service" Type="Self.Abonent_Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Abonent_Service">
+              <PropertyRef Name="asAbonent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent_S__asSer__1C873BEC">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Abonent_Service" Type="Self.Abonent_Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="Abonent_Service">
+              <PropertyRef Name="asService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent_T__Abone__57DD0BE4">
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="1" />
+          <End Role="Abonent_Tariff" Type="Self.Abonent_Tariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Abonent_Tariff">
+              <PropertyRef Name="Abonent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent_T__Tarif__5CA1C101">
+          <End Role="Tariff" Type="Self.Tariff" Multiplicity="1" />
+          <End Role="Abonent_Tariff" Type="Self.Abonent_Tariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariff">
+              <PropertyRef Name="TariffID" />
+            </Principal>
+            <Dependent Role="Abonent_Tariff">
+              <PropertyRef Name="Tariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AbonentNe__DataT__7F2BE32F">
+          <End Role="DataTransmissionStandart" Type="Self.DataTransmissionStandart" Multiplicity="1" />
+          <End Role="AbonentNetworkEquipment" Type="Self.AbonentNetworkEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataTransmissionStandart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AbonentNetworkEquipment">
+              <PropertyRef Name="DataTransmissionStandart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AbonentPa__Abone__0697FACD">
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="1" />
+          <End Role="AbonentPayment" Type="Self.AbonentPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AbonentPayment">
+              <PropertyRef Name="Abonent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccessNet__DataT__7C4F7684">
+          <End Role="DataTransmissionStandart" Type="Self.DataTransmissionStandart" Multiplicity="1" />
+          <End Role="AccessNetworkEquipment" Type="Self.AccessNetworkEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataTransmissionStandart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccessNetworkEquipment">
+              <PropertyRef Name="DataTransmissionStandart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CRMReques__Probl__66603565">
+          <End Role="ProblemType" Type="Self.ProblemType" Multiplicity="1" />
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProblemType">
+              <PropertyRef Name="ProblemTypeID" />
+            </Principal>
+            <Dependent Role="CRMRequest">
+              <PropertyRef Name="ProblemType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CRMReques__Servi__6383C8BA">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="CRMRequest">
+              <PropertyRef Name="Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CRMReques__Servi__6477ECF3">
+          <End Role="ServiceType" Type="Self.ServiceType" Multiplicity="1" />
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CRMRequest">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CRMReques__Statu__656C112C">
+          <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="1" />
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestStatus">
+              <PropertyRef Name="RequestStatusID" />
+            </Principal>
+            <Dependent Role="CRMRequest">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__Positi__30F848ED">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Events__TargetPo__72C60C4A">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="TargetPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MainNetwo__DataT__778AC167">
+          <End Role="DataTransmissionTechnology" Type="Self.DataTransmissionTechnology" Multiplicity="1" />
+          <End Role="MainNetworkEquipment" Type="Self.MainNetworkEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataTransmissionTechnology">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MainNetworkEquipment">
+              <PropertyRef Name="DataTransmissionTechnology" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__RegAd__251C81ED">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="RegistrationAddress">
+              <PropertyRef Name="RegAddContry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__RegAd__2610A626">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="RegistrationAddress">
+              <PropertyRef Name="RegAddCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__RegAd__2704CA5F">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="StreetID" />
+            </Principal>
+            <Dependent Role="RegistrationAddress">
+              <PropertyRef Name="RegAddStreet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RequestTo__EmpID__160F4887">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="RequestToEmployee" Type="Self.RequestToEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RequestToEmployee">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RequestTo__ReqID__17036CC0">
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="0..1" />
+          <End Role="RequestToEmployee" Type="Self.RequestToEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRMRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RequestToEmployee">
+              <PropertyRef Name="ReqID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ServiceTy__Servi__5CD6CB2B">
+          <End Role="ServiceKind" Type="Self.ServiceKind" Multiplicity="1" />
+          <End Role="ServiceType" Type="Self.ServiceType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceKind">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceType">
+              <PropertyRef Name="ServiceKind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TNSModelStoreContainer">
+          <EntitySet Name="Abonent" EntityType="Self.Abonent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Abonent_Service" EntityType="Self.Abonent_Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Abonent_Tariff" EntityType="Self.Abonent_Tariff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AbonentNetworkEquipment" EntityType="Self.AbonentNetworkEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AbonentPayment" EntityType="Self.AbonentPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccessNetworkEquipment" EntityType="Self.AccessNetworkEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractType" EntityType="Self.ContractType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRMRequest" EntityType="Self.CRMRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataTransmissionStandart" EntityType="Self.DataTransmissionStandart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataTransmissionTechnology" EntityType="Self.DataTransmissionTechnology" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainNetworkEquipment" EntityType="Self.MainNetworkEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassportIssueOrganization" EntityType="Self.PassportIssueOrganization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProblemType" EntityType="Self.ProblemType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistrationAddress" EntityType="Self.RegistrationAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestToEmployee" EntityType="Self.RequestToEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResidenceAddress" EntityType="Self.ResidenceAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceKind" EntityType="Self.ServiceKind" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceType" EntityType="Self.ServiceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sex" EntityType="Self.Sex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tariff" EntityType="Self.Tariff" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Abonent__Contrac__4E88ABD4" Association="Self.FK__Abonent__Contrac__4E88ABD4">
+            <End Role="ContractType" EntitySet="ContractType" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent__Passpor__32767D0B" Association="Self.FK__Abonent__Passpor__32767D0B">
+            <End Role="PassportIssueOrganization" EntitySet="PassportIssueOrganization" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent__Registr__308E3499" Association="Self.FK__Abonent__Registr__308E3499">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent__Sex__10566F31" Association="Self.FK__Abonent__Sex__10566F31">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent_S__asAbo__1B9317B3" Association="Self.FK__Abonent_S__asAbo__1B9317B3">
+            <End Role="Abonent" EntitySet="Abonent" />
+            <End Role="Abonent_Service" EntitySet="Abonent_Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent_S__asSer__1C873BEC" Association="Self.FK__Abonent_S__asSer__1C873BEC">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Abonent_Service" EntitySet="Abonent_Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent_T__Abone__57DD0BE4" Association="Self.FK__Abonent_T__Abone__57DD0BE4">
+            <End Role="Abonent" EntitySet="Abonent" />
+            <End Role="Abonent_Tariff" EntitySet="Abonent_Tariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent_T__Tarif__5CA1C101" Association="Self.FK__Abonent_T__Tarif__5CA1C101">
+            <End Role="Tariff" EntitySet="Tariff" />
+            <End Role="Abonent_Tariff" EntitySet="Abonent_Tariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AbonentNe__DataT__7F2BE32F" Association="Self.FK__AbonentNe__DataT__7F2BE32F">
+            <End Role="DataTransmissionStandart" EntitySet="DataTransmissionStandart" />
+            <End Role="AbonentNetworkEquipment" EntitySet="AbonentNetworkEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AbonentPa__Abone__0697FACD" Association="Self.FK__AbonentPa__Abone__0697FACD">
+            <End Role="Abonent" EntitySet="Abonent" />
+            <End Role="AbonentPayment" EntitySet="AbonentPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccessNet__DataT__7C4F7684" Association="Self.FK__AccessNet__DataT__7C4F7684">
+            <End Role="DataTransmissionStandart" EntitySet="DataTransmissionStandart" />
+            <End Role="AccessNetworkEquipment" EntitySet="AccessNetworkEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRMReques__Probl__66603565" Association="Self.FK__CRMReques__Probl__66603565">
+            <End Role="ProblemType" EntitySet="ProblemType" />
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRMReques__Servi__6383C8BA" Association="Self.FK__CRMReques__Servi__6383C8BA">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRMReques__Servi__6477ECF3" Association="Self.FK__CRMReques__Servi__6477ECF3">
+            <End Role="ServiceType" EntitySet="ServiceType" />
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRMReques__Statu__656C112C" Association="Self.FK__CRMReques__Statu__656C112C">
+            <End Role="RequestStatus" EntitySet="RequestStatus" />
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__Positi__30F848ED" Association="Self.FK__Employee__Positi__30F848ED">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Events__TargetPo__72C60C4A" Association="Self.FK__Events__TargetPo__72C60C4A">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MainNetwo__DataT__778AC167" Association="Self.FK__MainNetwo__DataT__778AC167">
+            <End Role="DataTransmissionTechnology" EntitySet="DataTransmissionTechnology" />
+            <End Role="MainNetworkEquipment" EntitySet="MainNetworkEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__RegAd__251C81ED" Association="Self.FK__Registrat__RegAd__251C81ED">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__RegAd__2610A626" Association="Self.FK__Registrat__RegAd__2610A626">
+            <End Role="City" EntitySet="City" />
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__RegAd__2704CA5F" Association="Self.FK__Registrat__RegAd__2704CA5F">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RequestTo__EmpID__160F4887" Association="Self.FK__RequestTo__EmpID__160F4887">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="RequestToEmployee" EntitySet="RequestToEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RequestTo__ReqID__17036CC0" Association="Self.FK__RequestTo__ReqID__17036CC0">
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+            <End Role="RequestToEmployee" EntitySet="RequestToEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ServiceTy__Servi__5CD6CB2B" Association="Self.FK__ServiceTy__Servi__5CD6CB2B">
+            <End Role="ServiceKind" EntitySet="ServiceKind" />
+            <End Role="ServiceType" EntitySet="ServiceType" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TNSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Abonent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Paramonic" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassportSeries" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassportIssueDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContractNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContractConclusionDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContractType" Type="Int32" Nullable="false" />
+          <Property Name="ContractTerminationDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="ContractTerminationReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EquipmentSerialNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RentLeasingInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sex" Type="Int32" Nullable="false" />
+          <Property Name="DateofBirth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassportIssueOrganization" Type="Int32" />
+          <Property Name="RegistrationAddress" Type="Int32" />
+          <NavigationProperty Name="ContractType1" Relationship="Self.FK__Abonent__Contrac__4E88ABD4" FromRole="Abonent" ToRole="ContractType" />
+          <NavigationProperty Name="PassportIssueOrganization1" Relationship="Self.FK__Abonent__Passpor__32767D0B" FromRole="Abonent" ToRole="PassportIssueOrganization" />
+          <NavigationProperty Name="RegistrationAddress1" Relationship="Self.FK__Abonent__Registr__308E3499" FromRole="Abonent" ToRole="RegistrationAddress" />
+          <NavigationProperty Name="Sex1" Relationship="Self.FK__Abonent__Sex__10566F31" FromRole="Abonent" ToRole="Sex" />
+          <NavigationProperty Name="Abonent_Service" Relationship="Self.FK__Abonent_S__asAbo__1B9317B3" FromRole="Abonent" ToRole="Abonent_Service" />
+          <NavigationProperty Name="Abonent_Tariff" Relationship="Self.FK__Abonent_T__Abone__57DD0BE4" FromRole="Abonent" ToRole="Abonent_Tariff" />
+          <NavigationProperty Name="AbonentPayment" Relationship="Self.FK__AbonentPa__Abone__0697FACD" FromRole="Abonent" ToRole="AbonentPayment" />
+        </EntityType>
+        <EntityType Name="Abonent_Service">
+          <Key>
+            <PropertyRef Name="asID" />
+          </Key>
+          <Property Name="asID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="asAbonent" Type="Int32" Nullable="false" />
+          <Property Name="asService" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Abonent" Relationship="Self.FK__Abonent_S__asAbo__1B9317B3" FromRole="Abonent_Service" ToRole="Abonent" />
+          <NavigationProperty Name="Service" Relationship="Self.FK__Abonent_S__asSer__1C873BEC" FromRole="Abonent_Service" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Abonent_Tariff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Abonent" Type="Int32" Nullable="false" />
+          <Property Name="Tariff" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Abonent1" Relationship="Self.FK__Abonent_T__Abone__57DD0BE4" FromRole="Abonent_Tariff" ToRole="Abonent" />
+          <NavigationProperty Name="Tariff1" Relationship="Self.FK__Abonent_T__Tarif__5CA1C101" FromRole="Abonent_Tariff" ToRole="Tariff" />
+        </EntityType>
+        <EntityType Name="AbonentNetworkEquipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataTransmissionStandart" Type="Int32" Nullable="false" />
+          <Property Name="TransmissionSpeed" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DataTransmissionStandart1" Relationship="Self.FK__AbonentNe__DataT__7F2BE32F" FromRole="AbonentNetworkEquipment" ToRole="DataTransmissionStandart" />
+        </EntityType>
+        <EntityType Name="AbonentPayment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Abonent" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PaymentAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Balance" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BalanceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Debt" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Abonent1" Relationship="Self.FK__AbonentPa__Abone__0697FACD" FromRole="AbonentPayment" ToRole="Abonent" />
+        </EntityType>
+        <EntityType Name="AccessNetworkEquipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PortAmount" Type="Int32" Nullable="false" />
+          <Property Name="DataTransmissionStandart" Type="Int32" Nullable="false" />
+          <Property Name="Frequency" Type="Double" Nullable="false" />
+          <Property Name="TransmissionSpeed" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DataTransmissionStandart1" Relationship="Self.FK__AccessNet__DataT__7C4F7684" FromRole="AccessNetworkEquipment" ToRole="DataTransmissionStandart" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RegistrationAddress" Relationship="Self.FK__Registrat__RegAd__2610A626" FromRole="City" ToRole="RegistrationAddress" />
+        </EntityType>
+        <EntityType Name="ContractType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Abonent" Relationship="Self.FK__Abonent__Contrac__4E88ABD4" FromRole="ContractType" ToRole="Abonent" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RegistrationAddress" Relationship="Self.FK__Registrat__RegAd__251C81ED" FromRole="Country" ToRole="RegistrationAddress" />
+        </EntityType>
+        <EntityType Name="CRMRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreationDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Service" Type="Int32" Nullable="false" />
+          <Property Name="ServiceType" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="ProblemDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ClosingDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="ProblemType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProblemType1" Relationship="Self.FK__CRMReques__Probl__66603565" FromRole="CRMRequest" ToRole="ProblemType" />
+          <NavigationProperty Name="Service1" Relationship="Self.FK__CRMReques__Servi__6383C8BA" FromRole="CRMRequest" ToRole="Service" />
+          <NavigationProperty Name="ServiceType1" Relationship="Self.FK__CRMReques__Servi__6477ECF3" FromRole="CRMRequest" ToRole="ServiceType" />
+          <NavigationProperty Name="RequestStatus" Relationship="Self.FK__CRMReques__Statu__656C112C" FromRole="CRMRequest" ToRole="RequestStatus" />
+          <NavigationProperty Name="RequestToEmployee" Relationship="Self.FK__RequestTo__ReqID__17036CC0" FromRole="CRMRequest" ToRole="RequestToEmployee" />
+        </EntityType>
+        <EntityType Name="DataTransmissionStandart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="StandName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AbonentNetworkEquipment" Relationship="Self.FK__AbonentNe__DataT__7F2BE32F" FromRole="DataTransmissionStandart" ToRole="AbonentNetworkEquipment" />
+          <NavigationProperty Name="AccessNetworkEquipment" Relationship="Self.FK__AccessNet__DataT__7C4F7684" FromRole="DataTransmissionStandart" ToRole="AccessNetworkEquipment" />
+        </EntityType>
+        <EntityType Name="DataTransmissionTechnology">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TechName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MainNetworkEquipment" Relationship="Self.FK__MainNetwo__DataT__778AC167" FromRole="DataTransmissionTechnology" ToRole="MainNetworkEquipment" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Paramonic" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Position1" Relationship="Self.FK__Employee__Positi__30F848ED" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="RequestToEmployee" Relationship="Self.FK__RequestTo__EmpID__160F4887" FromRole="Employee" ToRole="RequestToEmployee" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TargetPosition" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="Self.FK__Events__TargetPo__72C60C4A" FromRole="Events" ToRole="Position" />
+        </EntityType>
+        <EntityType Name="MainNetworkEquipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Frequency" Type="Double" Nullable="false" />
+          <Property Name="DataTransmissionTechnology" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DataTransmissionTechnology1" Relationship="Self.FK__MainNetwo__DataT__778AC167" FromRole="MainNetworkEquipment" ToRole="DataTransmissionTechnology" />
+        </EntityType>
+        <EntityType Name="PassportIssueOrganization">
+          <Key>
+            <PropertyRef Name="OrgID" />
+          </Key>
+          <Property Name="OrgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Abonent" Relationship="Self.FK__Abonent__Passpor__32767D0B" FromRole="PassportIssueOrganization" ToRole="Abonent" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__Positi__30F848ED" FromRole="Position" ToRole="Employee" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__Events__TargetPo__72C60C4A" FromRole="Position" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="ProblemType">
+          <Key>
+            <PropertyRef Name="ProblemTypeID" />
+          </Key>
+          <Property Name="ProblemTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ProblemTypeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CRMRequest" Relationship="Self.FK__CRMReques__Probl__66603565" FromRole="ProblemType" ToRole="CRMRequest" />
+        </EntityType>
+        <EntityType Name="RegistrationAddress">
+          <Key>
+            <PropertyRef Name="RegAddID" />
+          </Key>
+          <Property Name="RegAddID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegAddContry" Type="Int32" Nullable="false" />
+          <Property Name="RegAddCity" Type="Int32" Nullable="false" />
+          <Property Name="RegAddStreet" Type="Int32" Nullable="false" />
+          <Property Name="RegAddHouse" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegAddApartment" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Abonent" Relationship="Self.FK__Abonent__Registr__308E3499" FromRole="RegistrationAddress" ToRole="Abonent" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Registrat__RegAd__2610A626" FromRole="RegistrationAddress" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Registrat__RegAd__251C81ED" FromRole="RegistrationAddress" ToRole="Country" />
+          <NavigationProperty Name="Street" Relationship="Self.FK__Registrat__RegAd__2704CA5F" FromRole="RegistrationAddress" ToRole="Street" />
+        </EntityType>
+        <EntityType Name="RequestStatus">
+          <Key>
+            <PropertyRef Name="RequestStatusID" />
+          </Key>
+          <Property Name="RequestStatusID" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CRMRequest" Relationship="Self.FK__CRMReques__Statu__656C112C" FromRole="RequestStatus" ToRole="CRMRequest" />
+        </EntityType>
+        <EntityType Name="RequestToEmployee">
+          <Key>
+            <PropertyRef Name="RtEID" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" Nullable="false" />
+          <Property Name="ReqID" Type="Int32" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isHoliday" Type="Boolean" Nullable="false" />
+          <Property Name="TimeEnd" Type="Time" Precision="7" />
+          <Property Name="RtEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CRMRequest" Relationship="Self.FK__RequestTo__ReqID__17036CC0" FromRole="RequestToEmployee" ToRole="CRMRequest" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__RequestTo__EmpID__160F4887" FromRole="RequestToEmployee" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="ResidenceAddress">
+          <Key>
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prefix_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="raion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prefix" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="house" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" />
+          <Property Name="ServiceName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Abonent_Service" Relationship="Self.FK__Abonent_S__asSer__1C873BEC" FromRole="Service" ToRole="Abonent_Service" />
+          <NavigationProperty Name="CRMRequest" Relationship="Self.FK__CRMReques__Servi__6383C8BA" FromRole="Service" ToRole="CRMRequest" />
+        </EntityType>
+        <EntityType Name="ServiceKind">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ServiceType" Relationship="Self.FK__ServiceTy__Servi__5CD6CB2B" FromRole="ServiceKind" ToRole="ServiceType" />
+        </EntityType>
+        <EntityType Name="ServiceType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ServiceKind" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CRMRequest" Relationship="Self.FK__CRMReques__Servi__6477ECF3" FromRole="ServiceType" ToRole="CRMRequest" />
+          <NavigationProperty Name="ServiceKind1" Relationship="Self.FK__ServiceTy__Servi__5CD6CB2B" FromRole="ServiceType" ToRole="ServiceKind" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Abonent" Relationship="Self.FK__Abonent__Sex__10566F31" FromRole="Sex" ToRole="Abonent" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="StreetID" />
+          </Key>
+          <Property Name="StreetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RegistrationAddress" Relationship="Self.FK__Registrat__RegAd__2704CA5F" FromRole="Street" ToRole="RegistrationAddress" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tariff">
+          <Key>
+            <PropertyRef Name="TariffID" />
+          </Key>
+          <Property Name="TariffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TariffName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TariffPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="InternetConditions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TVConditions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileConditions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VideoControlConditions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Abonent_Tariff" Relationship="Self.FK__Abonent_T__Tarif__5CA1C101" FromRole="Tariff" ToRole="Abonent_Tariff" />
+        </EntityType>
+        <Association Name="FK__Abonent__Contrac__4E88ABD4">
+          <End Role="ContractType" Type="Self.ContractType" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="ContractType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent__Passpor__32767D0B">
+          <End Role="PassportIssueOrganization" Type="Self.PassportIssueOrganization" Multiplicity="0..1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassportIssueOrganization">
+              <PropertyRef Name="OrgID" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="PassportIssueOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent__Registr__308E3499">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="0..1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="RegAddID" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent__Sex__10566F31">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="Sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent_S__asAbo__1B9317B3">
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="1" />
+          <End Role="Abonent_Service" Type="Self.Abonent_Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Abonent_Service">
+              <PropertyRef Name="asAbonent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent_T__Abone__57DD0BE4">
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="1" />
+          <End Role="Abonent_Tariff" Type="Self.Abonent_Tariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Abonent_Tariff">
+              <PropertyRef Name="Abonent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AbonentPa__Abone__0697FACD">
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="1" />
+          <End Role="AbonentPayment" Type="Self.AbonentPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AbonentPayment">
+              <PropertyRef Name="Abonent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent_S__asSer__1C873BEC">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Abonent_Service" Type="Self.Abonent_Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="Abonent_Service">
+              <PropertyRef Name="asService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Abonent_T__Tarif__5CA1C101">
+          <End Role="Tariff" Type="Self.Tariff" Multiplicity="1" />
+          <End Role="Abonent_Tariff" Type="Self.Abonent_Tariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariff">
+              <PropertyRef Name="TariffID" />
+            </Principal>
+            <Dependent Role="Abonent_Tariff">
+              <PropertyRef Name="Tariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AbonentNe__DataT__7F2BE32F">
+          <End Role="DataTransmissionStandart" Type="Self.DataTransmissionStandart" Multiplicity="1" />
+          <End Role="AbonentNetworkEquipment" Type="Self.AbonentNetworkEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataTransmissionStandart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AbonentNetworkEquipment">
+              <PropertyRef Name="DataTransmissionStandart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccessNet__DataT__7C4F7684">
+          <End Role="DataTransmissionStandart" Type="Self.DataTransmissionStandart" Multiplicity="1" />
+          <End Role="AccessNetworkEquipment" Type="Self.AccessNetworkEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataTransmissionStandart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccessNetworkEquipment">
+              <PropertyRef Name="DataTransmissionStandart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__RegAd__2610A626">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="RegistrationAddress">
+              <PropertyRef Name="RegAddCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__RegAd__251C81ED">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="RegistrationAddress">
+              <PropertyRef Name="RegAddContry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CRMReques__Probl__66603565">
+          <End Role="ProblemType" Type="Self.ProblemType" Multiplicity="1" />
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProblemType">
+              <PropertyRef Name="ProblemTypeID" />
+            </Principal>
+            <Dependent Role="CRMRequest">
+              <PropertyRef Name="ProblemType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CRMReques__Servi__6383C8BA">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="CRMRequest">
+              <PropertyRef Name="Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CRMReques__Servi__6477ECF3">
+          <End Role="ServiceType" Type="Self.ServiceType" Multiplicity="1" />
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CRMRequest">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CRMReques__Statu__656C112C">
+          <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="1" />
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestStatus">
+              <PropertyRef Name="RequestStatusID" />
+            </Principal>
+            <Dependent Role="CRMRequest">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RequestTo__ReqID__17036CC0">
+          <End Role="CRMRequest" Type="Self.CRMRequest" Multiplicity="0..1" />
+          <End Role="RequestToEmployee" Type="Self.RequestToEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRMRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RequestToEmployee">
+              <PropertyRef Name="ReqID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MainNetwo__DataT__778AC167">
+          <End Role="DataTransmissionTechnology" Type="Self.DataTransmissionTechnology" Multiplicity="1" />
+          <End Role="MainNetworkEquipment" Type="Self.MainNetworkEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataTransmissionTechnology">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MainNetworkEquipment">
+              <PropertyRef Name="DataTransmissionTechnology" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__Positi__30F848ED">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RequestTo__EmpID__160F4887">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="RequestToEmployee" Type="Self.RequestToEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RequestToEmployee">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Events__TargetPo__72C60C4A">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="TargetPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__RegAd__2704CA5F">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="StreetID" />
+            </Principal>
+            <Dependent Role="RegistrationAddress">
+              <PropertyRef Name="RegAddStreet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ServiceTy__Servi__5CD6CB2B">
+          <End Role="ServiceKind" Type="Self.ServiceKind" Multiplicity="1" />
+          <End Role="ServiceType" Type="Self.ServiceType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceKind">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceType">
+              <PropertyRef Name="ServiceKind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TNSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abonent" EntityType="Self.Abonent" />
+          <EntitySet Name="Abonent_Service" EntityType="Self.Abonent_Service" />
+          <EntitySet Name="Abonent_Tariff" EntityType="Self.Abonent_Tariff" />
+          <EntitySet Name="AbonentNetworkEquipment" EntityType="Self.AbonentNetworkEquipment" />
+          <EntitySet Name="AbonentPayment" EntityType="Self.AbonentPayment" />
+          <EntitySet Name="AccessNetworkEquipment" EntityType="Self.AccessNetworkEquipment" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="ContractType" EntityType="Self.ContractType" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="CRMRequest" EntityType="Self.CRMRequest" />
+          <EntitySet Name="DataTransmissionStandart" EntityType="Self.DataTransmissionStandart" />
+          <EntitySet Name="DataTransmissionTechnology" EntityType="Self.DataTransmissionTechnology" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Events" EntityType="Self.Events" />
+          <EntitySet Name="MainNetworkEquipment" EntityType="Self.MainNetworkEquipment" />
+          <EntitySet Name="PassportIssueOrganization" EntityType="Self.PassportIssueOrganization" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="ProblemType" EntityType="Self.ProblemType" />
+          <EntitySet Name="RegistrationAddress" EntityType="Self.RegistrationAddress" />
+          <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" />
+          <EntitySet Name="RequestToEmployee" EntityType="Self.RequestToEmployee" />
+          <EntitySet Name="ResidenceAddress" EntityType="Self.ResidenceAddress" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="ServiceKind" EntityType="Self.ServiceKind" />
+          <EntitySet Name="ServiceType" EntityType="Self.ServiceType" />
+          <EntitySet Name="Sex" EntityType="Self.Sex" />
+          <EntitySet Name="Street" EntityType="Self.Street" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tariff" EntityType="Self.Tariff" />
+          <AssociationSet Name="FK__Abonent__Contrac__4E88ABD4" Association="Self.FK__Abonent__Contrac__4E88ABD4">
+            <End Role="ContractType" EntitySet="ContractType" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent__Passpor__32767D0B" Association="Self.FK__Abonent__Passpor__32767D0B">
+            <End Role="PassportIssueOrganization" EntitySet="PassportIssueOrganization" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent__Registr__308E3499" Association="Self.FK__Abonent__Registr__308E3499">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent__Sex__10566F31" Association="Self.FK__Abonent__Sex__10566F31">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent_S__asAbo__1B9317B3" Association="Self.FK__Abonent_S__asAbo__1B9317B3">
+            <End Role="Abonent" EntitySet="Abonent" />
+            <End Role="Abonent_Service" EntitySet="Abonent_Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent_T__Abone__57DD0BE4" Association="Self.FK__Abonent_T__Abone__57DD0BE4">
+            <End Role="Abonent" EntitySet="Abonent" />
+            <End Role="Abonent_Tariff" EntitySet="Abonent_Tariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AbonentPa__Abone__0697FACD" Association="Self.FK__AbonentPa__Abone__0697FACD">
+            <End Role="Abonent" EntitySet="Abonent" />
+            <End Role="AbonentPayment" EntitySet="AbonentPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent_S__asSer__1C873BEC" Association="Self.FK__Abonent_S__asSer__1C873BEC">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Abonent_Service" EntitySet="Abonent_Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Abonent_T__Tarif__5CA1C101" Association="Self.FK__Abonent_T__Tarif__5CA1C101">
+            <End Role="Tariff" EntitySet="Tariff" />
+            <End Role="Abonent_Tariff" EntitySet="Abonent_Tariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AbonentNe__DataT__7F2BE32F" Association="Self.FK__AbonentNe__DataT__7F2BE32F">
+            <End Role="DataTransmissionStandart" EntitySet="DataTransmissionStandart" />
+            <End Role="AbonentNetworkEquipment" EntitySet="AbonentNetworkEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccessNet__DataT__7C4F7684" Association="Self.FK__AccessNet__DataT__7C4F7684">
+            <End Role="DataTransmissionStandart" EntitySet="DataTransmissionStandart" />
+            <End Role="AccessNetworkEquipment" EntitySet="AccessNetworkEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__RegAd__2610A626" Association="Self.FK__Registrat__RegAd__2610A626">
+            <End Role="City" EntitySet="City" />
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__RegAd__251C81ED" Association="Self.FK__Registrat__RegAd__251C81ED">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRMReques__Probl__66603565" Association="Self.FK__CRMReques__Probl__66603565">
+            <End Role="ProblemType" EntitySet="ProblemType" />
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRMReques__Servi__6383C8BA" Association="Self.FK__CRMReques__Servi__6383C8BA">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRMReques__Servi__6477ECF3" Association="Self.FK__CRMReques__Servi__6477ECF3">
+            <End Role="ServiceType" EntitySet="ServiceType" />
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRMReques__Statu__656C112C" Association="Self.FK__CRMReques__Statu__656C112C">
+            <End Role="RequestStatus" EntitySet="RequestStatus" />
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RequestTo__ReqID__17036CC0" Association="Self.FK__RequestTo__ReqID__17036CC0">
+            <End Role="CRMRequest" EntitySet="CRMRequest" />
+            <End Role="RequestToEmployee" EntitySet="RequestToEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MainNetwo__DataT__778AC167" Association="Self.FK__MainNetwo__DataT__778AC167">
+            <End Role="DataTransmissionTechnology" EntitySet="DataTransmissionTechnology" />
+            <End Role="MainNetworkEquipment" EntitySet="MainNetworkEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__Positi__30F848ED" Association="Self.FK__Employee__Positi__30F848ED">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RequestTo__EmpID__160F4887" Association="Self.FK__RequestTo__EmpID__160F4887">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="RequestToEmployee" EntitySet="RequestToEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Events__TargetPo__72C60C4A" Association="Self.FK__Events__TargetPo__72C60C4A">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__RegAd__2704CA5F" Association="Self.FK__Registrat__RegAd__2704CA5F">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ServiceTy__Servi__5CD6CB2B" Association="Self.FK__ServiceTy__Servi__5CD6CB2B">
+            <End Role="ServiceKind" EntitySet="ServiceKind" />
+            <End Role="ServiceType" EntitySet="ServiceType" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TNSModelStoreContainer" CdmEntityContainer="TNSEntities">
+          <EntitySetMapping Name="Abonent">
+            <EntityTypeMapping TypeName="TNSModel.Abonent">
+              <MappingFragment StoreEntitySet="Abonent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Paramonic" ColumnName="Paramonic" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
+                <ScalarProperty Name="PassportIssueDate" ColumnName="PassportIssueDate" />
+                <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+                <ScalarProperty Name="ContractConclusionDate" ColumnName="ContractConclusionDate" />
+                <ScalarProperty Name="ContractType" ColumnName="ContractType" />
+                <ScalarProperty Name="ContractTerminationDate" ColumnName="ContractTerminationDate" />
+                <ScalarProperty Name="ContractTerminationReason" ColumnName="ContractTerminationReason" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="EquipmentSerialNumber" ColumnName="EquipmentSerialNumber" />
+                <ScalarProperty Name="RentLeasingInfo" ColumnName="RentLeasingInfo" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassportIssueOrganization" ColumnName="PassportIssueOrganization" />
+                <ScalarProperty Name="RegistrationAddress" ColumnName="RegistrationAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Abonent_Service">
+            <EntityTypeMapping TypeName="TNSModel.Abonent_Service">
+              <MappingFragment StoreEntitySet="Abonent_Service">
+                <ScalarProperty Name="asID" ColumnName="asID" />
+                <ScalarProperty Name="asAbonent" ColumnName="asAbonent" />
+                <ScalarProperty Name="asService" ColumnName="asService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Abonent_Tariff">
+            <EntityTypeMapping TypeName="TNSModel.Abonent_Tariff">
+              <MappingFragment StoreEntitySet="Abonent_Tariff">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Abonent" ColumnName="Abonent" />
+                <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AbonentNetworkEquipment">
+            <EntityTypeMapping TypeName="TNSModel.AbonentNetworkEquipment">
+              <MappingFragment StoreEntitySet="AbonentNetworkEquipment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DataTransmissionStandart" ColumnName="DataTransmissionStandart" />
+                <ScalarProperty Name="TransmissionSpeed" ColumnName="TransmissionSpeed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AbonentPayment">
+            <EntityTypeMapping TypeName="TNSModel.AbonentPayment">
+              <MappingFragment StoreEntitySet="AbonentPayment">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="Abonent" ColumnName="Abonent" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="BalanceDate" ColumnName="BalanceDate" />
+                <ScalarProperty Name="Debt" ColumnName="Debt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccessNetworkEquipment">
+            <EntityTypeMapping TypeName="TNSModel.AccessNetworkEquipment">
+              <MappingFragment StoreEntitySet="AccessNetworkEquipment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PortAmount" ColumnName="PortAmount" />
+                <ScalarProperty Name="DataTransmissionStandart" ColumnName="DataTransmissionStandart" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="TransmissionSpeed" ColumnName="TransmissionSpeed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="TNSModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractType">
+            <EntityTypeMapping TypeName="TNSModel.ContractType">
+              <MappingFragment StoreEntitySet="ContractType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="TNSModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRMRequest">
+            <EntityTypeMapping TypeName="TNSModel.CRMRequest">
+              <MappingFragment StoreEntitySet="CRMRequest">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RequestNum" ColumnName="RequestNum" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProblemDescription" ColumnName="ProblemDescription" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="ProblemType" ColumnName="ProblemType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataTransmissionStandart">
+            <EntityTypeMapping TypeName="TNSModel.DataTransmissionStandart">
+              <MappingFragment StoreEntitySet="DataTransmissionStandart">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StandName" ColumnName="StandName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataTransmissionTechnology">
+            <EntityTypeMapping TypeName="TNSModel.DataTransmissionTechnology">
+              <MappingFragment StoreEntitySet="DataTransmissionTechnology">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TechName" ColumnName="TechName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="TNSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Paramonic" ColumnName="Paramonic" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="TNSModel.Events">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TargetPosition" ColumnName="TargetPosition" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainNetworkEquipment">
+            <EntityTypeMapping TypeName="TNSModel.MainNetworkEquipment">
+              <MappingFragment StoreEntitySet="MainNetworkEquipment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="DataTransmissionTechnology" ColumnName="DataTransmissionTechnology" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassportIssueOrganization">
+            <EntityTypeMapping TypeName="TNSModel.PassportIssueOrganization">
+              <MappingFragment StoreEntitySet="PassportIssueOrganization">
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="TNSModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProblemType">
+            <EntityTypeMapping TypeName="TNSModel.ProblemType">
+              <MappingFragment StoreEntitySet="ProblemType">
+                <ScalarProperty Name="ProblemTypeID" ColumnName="ProblemTypeID" />
+                <ScalarProperty Name="ProblemTypeName" ColumnName="ProblemTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistrationAddress">
+            <EntityTypeMapping TypeName="TNSModel.RegistrationAddress">
+              <MappingFragment StoreEntitySet="RegistrationAddress">
+                <ScalarProperty Name="RegAddID" ColumnName="RegAddID" />
+                <ScalarProperty Name="RegAddContry" ColumnName="RegAddContry" />
+                <ScalarProperty Name="RegAddCity" ColumnName="RegAddCity" />
+                <ScalarProperty Name="RegAddStreet" ColumnName="RegAddStreet" />
+                <ScalarProperty Name="RegAddHouse" ColumnName="RegAddHouse" />
+                <ScalarProperty Name="RegAddApartment" ColumnName="RegAddApartment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestStatus">
+            <EntityTypeMapping TypeName="TNSModel.RequestStatus">
+              <MappingFragment StoreEntitySet="RequestStatus">
+                <ScalarProperty Name="RequestStatusID" ColumnName="RequestStatusID" />
+                <ScalarProperty Name="RequestStatusName" ColumnName="RequestStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestToEmployee">
+            <EntityTypeMapping TypeName="TNSModel.RequestToEmployee">
+              <MappingFragment StoreEntitySet="RequestToEmployee">
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="isHoliday" ColumnName="isHoliday" />
+                <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+                <ScalarProperty Name="RtEID" ColumnName="RtEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResidenceAddress">
+            <EntityTypeMapping TypeName="TNSModel.ResidenceAddress">
+              <MappingFragment StoreEntitySet="ResidenceAddress">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="prefix_code" ColumnName="prefix_code" />
+                <ScalarProperty Name="raion" ColumnName="raion" />
+                <ScalarProperty Name="prefix" ColumnName="prefix" />
+                <ScalarProperty Name="house" ColumnName="house" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="TNSModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceKind">
+            <EntityTypeMapping TypeName="TNSModel.ServiceKind">
+              <MappingFragment StoreEntitySet="ServiceKind">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceType">
+            <EntityTypeMapping TypeName="TNSModel.ServiceType">
+              <MappingFragment StoreEntitySet="ServiceType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ServiceKind" ColumnName="ServiceKind" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sex">
+            <EntityTypeMapping TypeName="TNSModel.Sex">
+              <MappingFragment StoreEntitySet="Sex">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="TNSModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="StreetID" ColumnName="StreetID" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TNSModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tariff">
+            <EntityTypeMapping TypeName="TNSModel.Tariff">
+              <MappingFragment StoreEntitySet="Tariff">
+                <ScalarProperty Name="TariffID" ColumnName="TariffID" />
+                <ScalarProperty Name="TariffName" ColumnName="TariffName" />
+                <ScalarProperty Name="TariffPrice" ColumnName="TariffPrice" />
+                <ScalarProperty Name="InternetConditions" ColumnName="InternetConditions" />
+                <ScalarProperty Name="TVConditions" ColumnName="TVConditions" />
+                <ScalarProperty Name="MobileConditions" ColumnName="MobileConditions" />
+                <ScalarProperty Name="VideoControlConditions" ColumnName="VideoControlConditions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

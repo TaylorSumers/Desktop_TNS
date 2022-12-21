@@ -1,0 +1,44 @@
+﻿<Window x:Class="Desktop_TNS.RequestCreationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop_TNS"
+        mc:Ignorable="d"
+        Height="550" Width="600"
+        Title="Создание заявки" MinHeight="500" MinWidth="600"
+        Icon="Resources/image.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="5, 0">
+            <TextBlock Margin="0,5" FontSize="20" Text="Номер заявки:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Дата создания:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Номер абонента:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Услуга:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Вид услуги:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Тип услуги:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Статус:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Тип проблемы:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Описание проблемы:"/>
+            <TextBlock Margin="0,5" FontSize="20"  Text="Дата закрытия:"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox Name="tbxRequestNum" Margin="0,5" FontSize="18" Width="250" HorizontalAlignment="Left" Text="{Binding RequestNum}"/>
+            <TextBox Name="tbxCreationDate" Margin="0,4" FontSize="18" Width="250" HorizontalAlignment="Left" Text="{Binding CreationDate}"/>
+            <TextBox Name="tbxAccountNumber" Margin="0,4" FontSize="18" Width="250" HorizontalAlignment="Left" Text="{Binding AccountNumber}"/>
+            <ComboBox Name="cbxService" Margin="0,4" FontSize="18" Width="250" HorizontalAlignment="Left" SelectedValue="{Binding Service}" SelectedValuePath="ServiceID" DisplayMemberPath="ServiceName"/>
+            <ComboBox Name="cbxServiceKind" Margin="0,4" FontSize="18" Width="250" HorizontalAlignment="Left" SelectedValuePath="ID" DisplayMemberPath="Name" SelectionChanged="cbxServiceKind_SelectionChanged"/>
+            <ComboBox Name="cbxServiceType" Margin="0,4" FontSize="18" Width="250" HorizontalAlignment="Left" SelectedValue="{Binding ServiceType}" SelectedValuePath="ID" DisplayMemberPath="Name"/>
+            <ComboBox Name="cbxStatus" Margin="0,4" FontSize="18" Width="250" HorizontalAlignment="Left" SelectedValue="{Binding Status}" SelectedValuePath="RequestStatusID" DisplayMemberPath="RequestStatusName"/>
+            <ComboBox Name="cbxProblemType" Margin="0,4" FontSize="18" Width="250" HorizontalAlignment="Left"  SelectedValue="{Binding ProblemType}" SelectedValuePath="ProblemTypeID" DisplayMemberPath="ProblemTypeName"/>
+            <TextBox Name="tbxProblemDesription" Margin="0,10" FontSize="18" Width="300" HorizontalAlignment="Left" Text="{Binding ProblemDescription}"/>
+            <TextBox Name="tbxClosingDate" Margin="0,0" FontSize="18" Width="250" HorizontalAlignment="Left" Text="{Binding ClosingDate}"/>
+            <Button Name="btnTest" Content="Протестировать оборудование" Width="200" Height="30" HorizontalAlignment="Right" Margin="30, 20" Background="#4A67F7" Foreground="White" Click="btnTest_Click"/>
+            <Button Name="btnCreateRequest" Height="30" Width="200" Content="Создать заявку" HorizontalAlignment="Right" Margin="30, 0" Click="btnCreateRequest_Click" Background="#4A67F7" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>
